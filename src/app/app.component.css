@@ -1,0 +1,11 @@
+/* Hover on the big tabs */
+.nav-tabs.nav-dark .nav-item a[aria-selected='false'] {
+  color: #fff;
+}
+
+.nav-tabs.nav-dark .nav-item a[aria-selected='false']:hover {
+  color: #495057;
+  text-shadow: 0 0 0.5px rgb(255 255 255 / 75%);
+  background: #ccc;
+  border-color: #ccc #ccc #dee2e6;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Celcom Design - Prisma Bootstrap test for Enterprise</title>
+</head>
+
+<body>
+  <app></app>
+  <script src="../node_modules/@celcomdesign/bootstrap"></script>
+  <script>
+    // Slick carousel config
+      $(document).ready(function() {
+        $('.carousel-icons').slick({
+          arrows: false,
+          dots: true,
+          dotsClass: 'carousel-indicators',
+          infinite: false,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          speed: 300,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          rows: 0, // Prevent adding an additional div
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+        });
+
+        $('.carousel-cards').slick({
+          arrows: false,
+          dots: true,
+          dotsClass: 'carousel-indicators indicator-dark',
+          infinite: false,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          speed: 300,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          rows: 0, // Prevent adding an additional div
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+        });
+      });
+  </script>
+  <script>
+    // Prevent closing from click inside dropdown
+      $(document).on('click', '.dropdown-menu', function(e) {
+        e.stopPropagation();
+      });
+
+      // Toggle tab
+      $(document).on('click', '.dropdown-menu .nav-link.active', function(e) {
+        $(this)
+          .removeClass('active')
+          .attr('aria-selected', 'false');
+        $(e.target.hash).removeClass('active show');
+      });
+
+      // Back button on mobile
+      $(document).on('click', '.tab-pane .d-lg-none', function(e) {
+        e.preventDefault();
+
+        var tabId = $(this)
+          .closest('.tab-pane')
+          .attr('aria-labelledby');
+        $(this)
+          .closest('.tab-pane')
+          .removeClass('active show');
+        $('#' + tabId)
+          .removeClass('active')
+          .attr('aria-selected', 'false');
+      });
+
+      // Clear tabs on dropdown links
+      $('.dropdown-toggle').click(function() {
+        $('.navbar-mega')
+          .find('.dropdown-menu .nav-link.active')
+          .removeClass('active')
+          .attr('aria-selected', 'false');
+        $('.navbar-mega')
+          .find('.dropdown-menu .tab-pane.active')
+          .removeClass('active show');
+      });
+  </script>
+  <script>
+    // Hide navbar on scroll down
+      var current = 0;
+
+      $(window).scroll(function() {
+        scroll = $(this).scrollTop();
+        if (scroll > 1) {
+          $('.autohide').addClass('shadow');
+        } else {
+          $('.autohide').removeClass('shadow');
+        }
+
+        if (scroll < current) {
+          $('.autohide')
+            .removeClass('scrolled-down')
+            .addClass('scrolled-up');
+        } else if (scroll > 88) {
+          $('.autohide')
+            .removeClass('scrolled-up')
+            .addClass('scrolled-down');
+        }
+        current = scroll;
+      });
+  </script>
+</body>
+
+</html>

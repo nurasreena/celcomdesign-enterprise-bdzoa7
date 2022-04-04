@@ -1,0 +1,114 @@
+/* Bottom margin solution #1 - Need manual override each time add item to list */
+/* .navbar.fixed-top .navbar-tab,
+.navbar.sticky-top .navbar-tab {
+  margin-bottom: calc(100vh - 252px);
+} */
+
+/* @media (min-width: 992px) {
+  .navbar.fixed-top .navbar-tab,
+  .navbar.sticky-top .navbar-tab {
+    margin-bottom: 0;
+  }
+} */
+
+/* Bottom margin when navbar animated */
+.navbar.scrolled-down .navbar-tab li:only-child {
+  margin-bottom: calc(100vh - 154px);
+}
+
+.navbar.scrolled-down
+  .navbar-tab
+  li:first-child:nth-last-child(2)
+  ~ li:last-child {
+  margin-bottom: calc(100vh - 196px);
+}
+
+.navbar.scrolled-down
+  .navbar-tab
+  li:first-child:nth-last-child(3)
+  ~ li:last-child {
+  margin-bottom: calc(100vh - 238px);
+}
+
+.navbar.scrolled-down
+  .navbar-tab
+  li:first-child:nth-last-child(4)
+  ~ li:last-child {
+  margin-bottom: calc(100vh - 280px);
+}
+
+.navbar.scrolled-down
+  .navbar-tab
+  li:first-child:nth-last-child(5)
+  ~ li:last-child {
+  margin-bottom: calc(100vh - 322px);
+}
+
+.navbar.scrolled-down
+  .navbar-tab
+  li:first-child:nth-last-child(6)
+  ~ li:last-child {
+  margin-bottom: calc(100vh - 364px);
+}
+
+/* Navbar animate on scroll */
+.scrolled-down {
+  /* transform: translateY(-100%); */
+  transform: translateY(-30px);
+  transition: all 0.3s ease-in-out;
+}
+.scrolled-up {
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.scrolled-down .navbar-brand {
+  transform: scale(0.65) translateY(23px);
+  transition: all 0.3s ease-in-out;
+}
+.scrolled-up .navbar-brand {
+  transform: scale(1) translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+/* .scrolled-down .navbar-toggler, */
+.scrolled-down .navbar-icon {
+  transform: translateY(15px);
+  transition: all 0.3s ease-in-out;
+}
+/* .scrolled-up .navbar-toggler, */
+.scrolled-up .navbar-icon {
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 992px) {
+  .navbar.scrolled-down .navbar-tab li:only-child,
+  .navbar.scrolled-down
+    .navbar-tab
+    li:first-child:nth-last-child(2)
+    ~ li:last-child,
+  .navbar.scrolled-down
+    .navbar-tab
+    li:first-child:nth-last-child(3)
+    ~ li:last-child,
+  .navbar.scrolled-down
+    .navbar-tab
+    li:first-child:nth-last-child(4)
+    ~ li:last-child,
+  .navbar.scrolled-down
+    .navbar-tab
+    li:first-child:nth-last-child(5)
+    ~ li:last-child,
+  .navbar.scrolled-down
+    .navbar-tab
+    li:first-child:nth-last-child(5)
+    ~ li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Don't transform any icon */
+  .scrolled-down .navbar-icon {
+    transform: none;
+  }
+}
